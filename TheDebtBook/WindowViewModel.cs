@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using TheDebtBook;
 
 
@@ -20,8 +21,8 @@ namespace TheDebtBook
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
-            debts.Add(new Debt("Mie Kryds Nielsen", "689kr" ));
-            debts.Add(new Debt("Viggo", "-100kr"));
+            debts.Add(new Debt("Mie Kryds Nielsen", "689kr", DateTime.Now));
+            debts.Add(new Debt("Viggo", "-100kr", DateTime.Now));
             CurrentDebt = debts[0];
         }
 
@@ -49,8 +50,6 @@ namespace TheDebtBook
                 return debts;
             }
         }
-
-
 
         #endregion
 
