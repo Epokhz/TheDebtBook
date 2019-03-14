@@ -24,7 +24,7 @@
                         Content="Debt History for:"  
                 />
                 <TextBox Margin="10,37,0,0" 
-                         Name="tbxName" 
+                         Name="tbxName2" 
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
                          MinWidth="58"
