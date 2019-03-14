@@ -50,15 +50,19 @@ namespace TheDebtBook
             }
         }
 
+
+
         #endregion
-
-
-
 
         #region Methods
         public void AddNewDebt()
         {
             debts.Add(new Debt());
+        }
+
+        public void DeleteDebt()
+        {
+            debts.Remove(CurrentDebt);
         }
 
         #endregion

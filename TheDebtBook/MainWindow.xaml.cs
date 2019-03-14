@@ -30,7 +30,20 @@ namespace TheDebtBook
             var vm = DataContext as WindowViewModel;
             vm.AddNewDebt();
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count - 1;
-            tbxId.Focus();
+            tbxName.Focus();
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as WindowViewModel;
+            vm.DeleteDebt();
+            ListboxDebts.SelectedIndex = ListboxDebts.Items.Count +1;
+            tbxName.Focus();
+        }
+
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

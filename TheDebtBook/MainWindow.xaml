@@ -35,7 +35,8 @@
 
                 <Label Height="28" Margin="10,12,0,43"  Grid.Column="0"   Content="Debt:"   />
 
-                <ListBox ItemsSource="{Binding}"
+                <ListBox ItemsSource="{Binding Path=Debts}"
+                         SelectedItem="{Binding Path=CurrentDebt}"
                          IsSynchronizedWithCurrentItem="True"
                          DisplayMemberPath="Name"
                          Name="ListboxDebts" 
@@ -44,29 +45,53 @@
                 />
 
                 <Label Height="28" Margin="0,10,0,40"  Grid.Column="1" >Name:</Label>
-                <Label Height="28" Margin="0,46,0,9" Grid.Column="1" >Amount:</Label>
+                <Label Height="28" Margin="0,51,0,9" Grid.Column="1" >Amount:</Label>
 
                 <TextBox Margin="10,18,0,0" 
                          Name="tbxName" 
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
                          MinWidth="58"
-                         Text="{Binding Path=Name}" 
+                         Text="{Binding Path=CurrentDebt.Name}" 
                          Grid.Column="2" Width="264"   
                 />
                 <TextBox Margin="10,55,0,0" 
                          Name="tbxAmount"
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
-                         Text="{Binding Path=Amount}" 
+                         Text="{Binding Path=CurrentDebt.Amount}" 
                          Grid.Column="2" Width="264"        
+                />
+                <Button ToolTip="Add New" 
+                        Content="Add"
+                        Name="BtnAddNew"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Click="BtnAddNew_Click" 
+                        Margin="124,96,0,-28"
+                        Grid.Column="2" Width="150"
+                        />
+
+                <Button ToolTip="Delete Selected"
+                        Content="Delete" 
+                        Name="BtnDelete"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Click="BtnDelete_Click"
+                        Margin="124,121,0,-53"
+                        Grid.Column="2" Width="150"
+                        />
+
+                <Button ToolTip="History of Selected"
+                        Content="History" 
+                        Name="BtnInfo"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Click="BtnHistory_Click"
+                        Margin="124,146,0,-78"
+                        Grid.Column="2" Width="150"
                 />
             </Grid>
         </DockPanel>
-        <Button ToolTip="Add New" 
-                Content="Add"
-                Name="BtnAddNew"
-                Click="BtnAddNew_Click" 
-                Margin="674,0,43,0"/>
     </StackPanel>
 </Window>
