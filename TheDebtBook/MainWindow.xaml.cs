@@ -43,7 +43,12 @@ namespace TheDebtBook
 
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
-
+            Window2 win2 = new Window2();
+            win2.Show();
+            //this.Close();
         }
+
+
+
     }
 }
