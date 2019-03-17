@@ -14,17 +14,16 @@
     </Window.DataContext>
     <Grid Name="DebtGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"></RowDefinition>
-            <RowDefinition Height="1.5*"></RowDefinition>
-            <RowDefinition Height="17*"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="31.2"></RowDefinition>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="220.8"/>
+            <ColumnDefinition Width="88"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label 
-                        Height="28" 
+        <Label Height="28" 
                         Margin="10,0,0,0"  
                         Grid.Row="0"
                         Grid.Column="0"   
@@ -36,19 +35,18 @@
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
                          MinWidth="58"
-                         Content="{Binding Path=CurrentDebt.Name}" 
                          Grid.Row="1"
                          Grid.Column="0" Width="167"   
                 />
 
-        <ListBox SelectedItem="{Binding Path=CurrentDebt}"
-                         IsSynchronizedWithCurrentItem="True"
+        <ListBox IsSynchronizedWithCurrentItem="True"
                          DisplayMemberPath="Name"
                          Name="ListboxDebts" 
                          Grid.Row="2"
                          Grid.Column="0" 
                          Height="Auto"
-                         Margin="10,5,10,10"  
+                         Margin="10,5,10,10"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
                 />
 
         <Button ToolTip="Close Window" 

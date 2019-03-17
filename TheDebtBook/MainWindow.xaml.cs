@@ -24,11 +24,11 @@ namespace TheDebtBook
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void BtnAddNew_Click(object sender, RoutedEventArgs e)
         {
+            
             var vm = DataContext as WindowViewModel;
             vm.AddNewDebt(tbxName,tbxAmount);
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count - 1;
