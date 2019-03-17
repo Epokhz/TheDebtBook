@@ -65,7 +65,7 @@ namespace TheDebtBook
 
         private void tbxAmmout_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = new Regex("[^0-9]+[-]+[.]").IsMatch(e.Text);
+            e.Handled = new Regex("[^0-9,-]").IsMatch(e.Text);
         }
     }
 }

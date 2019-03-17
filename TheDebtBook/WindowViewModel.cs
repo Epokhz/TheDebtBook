@@ -25,8 +25,8 @@ namespace TheDebtBook
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
-            debts.Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
-            debts.Add(new Debt("Viggo", "-100 kr", DateTime.Now));
+            debts.Add(new Debt("Mie Kryds Nielsen", 689 , DateTime.Now));
+            debts.Add(new Debt("Viggo", -100, DateTime.Now));
         
         }
 
@@ -52,14 +52,14 @@ namespace TheDebtBook
             {
                 for (int i = 0; i < 99; i++)
                 {
-                    Debts.Add(new Debt("Dummy", "Data", DateTime.MinValue));
+                    Debts.Add(new Debt("Dummy Data " + i, 00, DateTime.MinValue));
                 }
                 return;
             }
-            if (Name.Text != "" && Amount.Text != "")
+            if (Name.Text != "" && Amount.Text.Length != 0)
             {
-                
-                Debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
+                double val;
+                Debts.Add(new Debt(Name.Text, (double.TryParse(Amount.Text, out val) ? val : Double.NaN), DateTime.Now));
                 return;
             }
             else
