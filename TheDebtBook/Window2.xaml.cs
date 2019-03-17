@@ -17,11 +17,14 @@ namespace TheDebtBook
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
+   
     public partial class Window2 : Window
     {
         public Window2()
         {
             InitializeComponent();
+            FindingTarget();
+            
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
@@ -29,8 +32,17 @@ namespace TheDebtBook
             this.Close();
         }
 
-        private void Window_ContentRendered(object sender, EventArgs e)
+        public void FindingTarget()
         {
+            var selected = ((MainWindow)Application.Current.MainWindow).ListboxDebts.SelectedIndex;
+            var vm = DataContext as WindowViewModel;
+
+
+            var name = vm.Debts[selected].Name;
+            labelName.Content = name;
+            
+            
+
             
         }
     }
