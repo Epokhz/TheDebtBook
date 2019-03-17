@@ -5,29 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDebtBook"
         mc:Ignorable="d"
-        Title="TheDebtBook" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="TheDebtBook" Height="500" MinHeight="500" Width="800" MinWidth="800"> 
     <Window.DataContext>
         <local:WindowViewModel />
     </Window.DataContext>
-    <Grid Name="DebtGrid">
+    <Grid Name="DebtGrid" Margin="0,0,-0.4,1.4" HorizontalAlignment="Stretch" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="19*"></RowDefinition>
+            <RowDefinition Height="22.5"></RowDefinition>
+            <RowDefinition Height="481.6"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="380.8"></ColumnDefinition>
+            <ColumnDefinition Width="75.2"/>
+            <ColumnDefinition Width="32.8"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Menu Grid.ColumnSpan="3">
+        <Menu Grid.ColumnSpan="4" Margin="0,0,-0.4,0.4" HorizontalAlignment="Stretch">
             <MenuItem Header="_File" >
                 <MenuItem Header="_New" Command="{Binding NewFileCommand}"/>
                 <MenuItem Header="_Open" Command="{Binding OpenFileCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}"/>
                 <MenuItem Header="_Save" Command="{Binding SaveCommand}" />
                 <MenuItem Header="Save _As" Command="{Binding SaveAsCommand}" CommandParameter="{Binding ElementName=tbxFileName, Path=Text}" />
                 <MenuItem Header="E_xit" Command="{Binding CloseAppCommand}"/>
-
-
             </MenuItem>
             <MenuItem Header="_Debts">
                 <MenuItem Header="_Add new" Command="{Binding Path=AddNewDebtCommand}"/>
@@ -35,7 +35,10 @@
             </MenuItem>
         </Menu>
 
-        <Label Height="28" Margin="8,-5.333,1.667,376.667"  Grid.Row="1" Grid.Column="0"   Content="Debt:"   />
+        <Label Margin="8,4.6,50,449" 
+               Grid.Column="0"   
+               Content="Debt:" 
+               VerticalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="1"/>
 
         <ListBox ItemsSource="{Binding Path=Debts}"
                          SelectedItem="{Binding Path=CurrentDebt}"
@@ -43,29 +46,36 @@
                          ItemTemplate="{StaticResource DebtTemplate}"
                          Name="ListboxDebts" 
                          Grid.Column="0" 
-                         Margin="8,18.667,9.667,9.667" SelectionChanged="ListboxDebts_SelectionChanged"  
+                         Margin="8,32.6,9.8,86" 
+                         SelectionChanged="ListboxDebts_SelectionChanged"  
                          ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="1"
                          />
 
-        <Label Height="28" Margin="10.333,12.667,-10,358.667"  Grid.Row ="1" Grid.Column="1" >Name:</Label>
-        <Label Height="28" Margin="0.333,45.667,0,325.667" Grid.Row="1" Grid.Column="1" >Amount:</Label>
+        <Label Margin="10.2,6.6,0,447"  
+               Grid.Row ="1" 
+               Grid.Column="1"
+               VerticalAlignment="Stretch" >Name:</Label>
 
-        <TextBox Margin="10,18,0,0" 
+        <Label Margin="10.2,44.6,297.6,409" 
+               Grid.Row="1" 
+               Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" >Amount:</Label>
+
+        <TextBox Margin="0,17.8,30.6,0" 
                          Name="tbxName" 
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
                          MinWidth="58"
                          Text="{}" 
                          Grid.Row="1"
-                         Grid.Column="2" Width="264" TextChanged="TbxName_TextChanged"   
+                         Grid.Column="3" Width="264" TextChanged="TbxName_TextChanged" Height="18"   
                 />
-        <TextBox Margin="10,55,0,0" 
+        <TextBox Margin="0,54.8,30.6,0" 
                          Name="tbxAmount"
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
                          Text="{}" 
                          Grid.Row="1"
-                         Grid.Column="2" Width="264"        
+                         Grid.Column="3" Width="264" Height="18"        
                 />
         <Button ToolTip="Add New" 
                         Content="Add"
@@ -73,9 +83,9 @@
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left"
                         Click="BtnAddNew_Click" 
-                        Margin="124,96,0,-28"
+                        Margin="0,95.8,30.6,0"
                         Grid.Row="1"
-                        Grid.Column="2" Width="150"
+                        Grid.Column="3" Width="150" Height="20"
                         />
 
         <Button ToolTip="Delete Selected"
@@ -84,9 +94,9 @@
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left"
                         Click="BtnDelete_Click"
-                        Margin="124,121,0,-53"
+                        Margin="0,120.8,30.6,0"
                         Grid.Row="1"
-                        Grid.Column="2" Width="150"
+                        Grid.Column="3" Width="150" Height="19"
                         />
 
         <Button ToolTip="History of Selected"
@@ -95,9 +105,9 @@
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left"
                         Click="BtnHistory_Click"
-                        Margin="124,146,0,-78"
+                        Margin="0,145.8,30.6,0"
                         Grid.Row="1"
-                        Grid.Column="2" Width="150"
+                        Grid.Column="3" Width="150" Height="19"
                 />
     </Grid>
 </Window>

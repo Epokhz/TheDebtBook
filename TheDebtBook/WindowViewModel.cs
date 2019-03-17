@@ -85,6 +85,7 @@ namespace TheDebtBook
             debts.Remove(CurrentDebt);
         }
 
+
         #endregion
 
         #region INotifyPropertyChanged implementation

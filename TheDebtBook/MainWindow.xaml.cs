@@ -23,6 +23,7 @@ namespace TheDebtBook
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void BtnAddNew_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,7 @@ namespace TheDebtBook
 
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
+            
             Window2 win2 = new Window2();
             win2.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win2.Show();
