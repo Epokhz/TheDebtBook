@@ -22,12 +22,6 @@ namespace TheDebtBook
         public Window2()
         {
             InitializeComponent();
-
-            //Binding bindToName = new Binding();
-            //bindToName.Source = Name;
-            //bindToName.Path = new PropertyPath("Name");
-            //tbxName2.SetBinding(TextBox.TextProperty, bindToName);
-
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

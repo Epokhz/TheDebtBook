@@ -48,7 +48,6 @@ namespace TheDebtBook
             Window2 win2 = new Window2();
             win2.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win2.Show();
-            //this.Close();
         }
 
         private void ListboxDebts_SelectionChanged(object sender, SelectionChangedEventArgs e)
