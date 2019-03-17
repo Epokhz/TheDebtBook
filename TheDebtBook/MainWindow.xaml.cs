@@ -28,9 +28,11 @@ namespace TheDebtBook
         private void BtnAddNew_Click(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as WindowViewModel;
-            vm.AddNewDebt();
+            vm.AddNewDebt(tbxName,tbxAmount);
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count - 1;
             tbxName.Focus();
+            tbxName.Clear();
+            tbxAmount.Clear();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -48,7 +50,14 @@ namespace TheDebtBook
             win2.Show();
         }
 
+        private void ListboxDebts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
 
+        private void TbxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

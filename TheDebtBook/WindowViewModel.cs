@@ -4,11 +4,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Controls;
 using TheDebtBook;
 
 
@@ -54,9 +56,9 @@ namespace TheDebtBook
         #endregion
 
         #region Methods
-        public void AddNewDebt()
+        public void AddNewDebt(TextBox Name, TextBox Amount)
         {
-            debts.Add(new Debt());
+            debts.Add(new Debt(Name.Text,Amount.Text + "kr",DateTime.Now));
         }
 
         public void DeleteDebt()

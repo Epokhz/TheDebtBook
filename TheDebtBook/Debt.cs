@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Media.Animation;
 
 namespace TheDebtBook
 {
@@ -15,7 +16,7 @@ namespace TheDebtBook
         private DateTime _datetime = DateTime.Now;
 
         public Debt()
-        {
+        {   
         }
 
         public Debt(string aName, string anAmount, DateTime aTime)
