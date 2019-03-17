@@ -46,7 +46,6 @@ namespace TheDebtBook
             Window2 win2 = new Window2();
             win2.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win2.Show();
-            //this.Close();
         }
 
 

@@ -19,5 +19,20 @@
                 />
             </WrapPanel>
         </DataTemplate>
+        <DataTemplate x:Key="HistoryTemplate">
+            <WrapPanel>
+                <TextBlock Text="{Binding Path=Name}" Padding="0, 0" 
+                           Width="100"
+                />
+                <TextBlock TextAlignment="Right"
+                           Text="{Binding Path=Amount}" Padding="0, 0"
+                           Width="50" 
+                />
+                <TextBlock TextAlignment="Right"
+                           Text="{Binding Path=Time}" Padding="0, 0"
+                           Width="150" 
+                />
+            </WrapPanel>
+        </DataTemplate>
     </Application.Resources>
 </Application>

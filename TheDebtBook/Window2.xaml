@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDebtBook"
         mc:Ignorable="d"
-        Title="TheDebtBook" Height="450" Width="314.659">
+        Title="TheDebtBook" Height="450" Width="314.659"
+        WindowStartupLocation="CenterScreen"
+        
+        >
     <Window.DataContext>
         <local:WindowViewModel />
     </Window.DataContext>
