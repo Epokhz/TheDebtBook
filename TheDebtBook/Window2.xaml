@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TheDebtBook" Height="450" Width="314.659"
         WindowStartupLocation="CenterScreen"
-        
+        Window.ContentRendered="Window_ContentRendered"
         >
     <Window.DataContext>
         <local:WindowViewModel />
@@ -31,7 +31,7 @@
                          VerticalAlignment="Top" 
                          HorizontalAlignment="Left" 
                          MinWidth="58"
-                         Text="{Binding Path=CurrentDebt.Name}" 
+                         Text="{Binding Path= ListToTextBox}" 
                          Grid.Column="0" Width="167"   
                 />
 

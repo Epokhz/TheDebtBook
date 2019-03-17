@@ -28,5 +28,11 @@ namespace TheDebtBook
         {
             this.Close();
         }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            //var ab = Application.Current.MainWindow;
+            //((MainWindow)Application.Current.MainWindow).ListboxDebts.
+        }
     }
 }
