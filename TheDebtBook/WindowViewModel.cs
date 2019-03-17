@@ -1,25 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Configuration;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Controls;
-using TheDebtBook;
 
 
 namespace TheDebtBook
 {
     public class WindowViewModel : INotifyPropertyChanged
     {
-        ObservableCollection<Debt> debts;
+        readonly ObservableCollection<Debt> debts;
 
         public WindowViewModel()
         {
