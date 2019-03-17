@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
 using System.Net.Mime;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -24,8 +25,8 @@ namespace TheDebtBook
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
-            debts.Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
-            debts.Add(new Debt("Viggo", "-100 kr", DateTime.Now));
+            debts.Add(new Debt("Mie Kryds Nielsen" ,689, DateTime.Now));
+            debts.Add(new Debt("Viggo", 100, DateTime.Now));
             CurrentDebt = debts[0];
         }
 
@@ -64,13 +65,14 @@ namespace TheDebtBook
             {
                 for (int i = 0; i < 99; i++)
                 {
-                    debts.Add(new Debt("Dummy", "Data", DateTime.MinValue));
+                    debts.Add(new Debt("Dummy Data", 00, DateTime.MinValue));
                 }
                 return;
             }
-            if (Name.Text != "" && Amount.Text != "")
+            if (Name.Text != "" && Amount.Text.Length != 0)
             {
-                debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
+                double val;
+                debts.Add(new Debt(Name.Text, (double.TryParse(Amount.Text, out val) ? val : Double.NaN), DateTime.Now));
             }
             else
             {

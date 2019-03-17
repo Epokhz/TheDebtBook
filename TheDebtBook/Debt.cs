@@ -12,14 +12,15 @@ namespace TheDebtBook
     public class Debt
     {
         private string _name;
-        private string _amount;
+        private double _amount;
+        private string _sum;
         private DateTime _datetime = DateTime.Now;
 
         public Debt()
         {   
         }
 
-        public Debt(string aName, string anAmount, DateTime aTime)
+        public Debt(string aName, double anAmount, DateTime aTime)
         {
             _name = aName;
             _amount = anAmount;
@@ -32,7 +33,7 @@ namespace TheDebtBook
             set => _name = value;
         }
 
-        public string Amount
+        public double Amount
         {
             get => _amount;
             set => _amount = value;
@@ -43,6 +44,7 @@ namespace TheDebtBook
             get => _datetime;
             set => _datetime = value;
         }
+
 
 
     }
