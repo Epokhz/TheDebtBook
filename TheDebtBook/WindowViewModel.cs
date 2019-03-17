@@ -19,32 +19,20 @@ namespace TheDebtBook
 {
     public class WindowViewModel : INotifyPropertyChanged
     {
-        ObservableCollection<Debt> debts;
+        
+        private ObservableCollection<Debt> debts;
 
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
             debts.Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
             debts.Add(new Debt("Viggo", "-100 kr", DateTime.Now));
-            CurrentDebt = debts[0];
+        
         }
 
         #region Properties
 
-        Debt currentDebt = null;
-
-        public Debt CurrentDebt
-        {
-            get { return currentDebt; }
-            set
-            {
-                if (currentDebt != value)
-                {
-                    currentDebt = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+   
 
         public ObservableCollection<Debt> Debts
         {
@@ -64,13 +52,15 @@ namespace TheDebtBook
             {
                 for (int i = 0; i < 99; i++)
                 {
-                    debts.Add(new Debt("Dummy", "Data", DateTime.MinValue));
+                    Debts.Add(new Debt("Dummy", "Data", DateTime.MinValue));
                 }
                 return;
             }
             if (Name.Text != "" && Amount.Text != "")
             {
-                debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
+                
+                Debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
+                return;
             }
             else
             {
@@ -82,7 +72,8 @@ namespace TheDebtBook
 
         public void DeleteDebt()
         {
-            debts.Remove(CurrentDebt);
+            var index = ((MainWindow) Application.Current.MainWindow).ListboxDebts.SelectedIndex;
+            Debts.RemoveAt(index);
         }
 
 
