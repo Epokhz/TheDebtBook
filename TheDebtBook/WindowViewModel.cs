@@ -60,6 +60,14 @@ namespace TheDebtBook
 
         public void AddNewDebt(TextBox Name, TextBox Amount)
         {
+            if (Name.Text == "dummy" && Amount.Text == "dummy")
+            {
+                for (int i = 0; i < 99; i++)
+                {
+                    debts.Add(new Debt("Dummy", "Data", DateTime.MinValue));
+                }
+                return;
+            }
             if (Name.Text != "" && Amount.Text != "")
             {
                 debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
@@ -68,6 +76,8 @@ namespace TheDebtBook
             {
                 MessageBox.Show("En (Eller flere!) af felterne var tomme Prøv igen!");
             }
+            
+           
         }
 
         public void DeleteDebt()
