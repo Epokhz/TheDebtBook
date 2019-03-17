@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows;
 using System.Windows.Controls;
 using TheDebtBook;
 
@@ -23,8 +24,8 @@ namespace TheDebtBook
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
-            debts.Add(new Debt("Mie Kryds Nielsen", "689kr", DateTime.Now));
-            debts.Add(new Debt("Viggo", "-100kr", DateTime.Now));
+            debts.Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
+            debts.Add(new Debt("Viggo", "-100 kr", DateTime.Now));
             CurrentDebt = debts[0];
         }
 
@@ -56,9 +57,27 @@ namespace TheDebtBook
         #endregion
 
         #region Methods
+
         public void AddNewDebt(TextBox Name, TextBox Amount)
         {
-            debts.Add(new Debt(Name.Text,Amount.Text + "kr",DateTime.Now));
+            if (Name.Text == "dummy" && Amount.Text == "dummy")
+            {
+                for (int i = 0; i < 99; i++)
+                {
+                    debts.Add(new Debt("Dummy", "Data", DateTime.MinValue));
+                }
+                return;
+            }
+            if (Name.Text != "" && Amount.Text != "")
+            {
+                debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
+            }
+            else
+            {
+                MessageBox.Show("En (Eller flere!) af felterne var tomme Prøv igen!");
+            }
+            
+           
         }
 
         public void DeleteDebt()
