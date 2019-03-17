@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheDebtBook"
         mc:Ignorable="d"
-        Title="TheDebtBook" Height="450" Width="315"
+        Title="TheDebtBook" Height="450" Width="315" MinHeight="450" MinWidth="315"
         WindowStartupLocation="CenterScreen"
         
         >
