@@ -12,7 +12,7 @@
     <Window.DataContext>
         <local:WindowViewModel />
     </Window.DataContext>
-    <Grid Name="DebtGrid">
+    <Grid Name="DebtGrid" Background="LightCyan">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="31.2"></RowDefinition>
