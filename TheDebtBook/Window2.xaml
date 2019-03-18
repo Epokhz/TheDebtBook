@@ -40,13 +40,13 @@
                 />
 
         <ListBox IsSynchronizedWithCurrentItem="True"
-                         DisplayMemberPath="Name"
                          Name="ListboxDebts" 
                          Grid.Row="2"
                          Grid.Column="0" 
                          Height="Auto"
                          Margin="10,5,10,10"
                          ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ItemTemplate="{StaticResource HistoryTemplate}"
                 />
 
         <Button ToolTip="Close Window" 

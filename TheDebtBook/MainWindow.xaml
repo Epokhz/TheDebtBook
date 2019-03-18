@@ -41,14 +41,14 @@
                VerticalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="1"/>
 
         <ListBox ItemsSource="{Binding Path=Debts}"
-                         SelectedItem="{Binding Path=CurrentDebt}"
                          IsSynchronizedWithCurrentItem="True"
                          ItemTemplate="{StaticResource DebtTemplate}"
                          Name="ListboxDebts" 
                          Grid.Column="0" 
                          Margin="8,32.6,9.8,86" 
                          SelectionChanged="ListboxDebts_SelectionChanged"  
-                         ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="1"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                         Grid.Row="1"
                          />
 
         <Label Margin="10.2,6.6,0,447"  
@@ -78,7 +78,7 @@
                          Grid.Column="3" Width="264" Height="18" PreviewTextInput="tbxAmmout_PreviewTextInput"        
                 />
         <Button ToolTip="Add New" 
-                        Content="Add"
+                        Content="_Add"
                         Name="BtnAddNew"
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left"
@@ -89,7 +89,7 @@
                         />
 
         <Button ToolTip="Delete Selected"
-                        Content="Delete" 
+                        Content="_Delete" 
                         Name="BtnDelete"
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left"
@@ -100,7 +100,7 @@
                         />
 
         <Button ToolTip="History of Selected"
-                        Content="History" 
+                        Content="_History" 
                         Name="BtnInfo"
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Left"

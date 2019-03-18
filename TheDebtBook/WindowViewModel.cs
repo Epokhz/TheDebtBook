@@ -19,18 +19,14 @@ namespace TheDebtBook
 {
     public class WindowViewModel : INotifyPropertyChanged
     {
-        
         private ObservableCollection<Debt> debts;
-
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
             debts.Add(new Debt("Mie Kryds Nielsen", 689 , DateTime.Now));
             debts.Add(new Debt("Viggo", -100, DateTime.Now));
-        
         }
 
-        
         public ObservableCollection<Debt> Debts
         {
             get
@@ -39,11 +35,9 @@ namespace TheDebtBook
             }
         }
 
-   
-
         public void AddNewDebt(TextBox Name, TextBox Amount)
         {
-            if (Name.Text == "dummy" && Amount.Text == "dummy")
+            if (Name.Text == "dummy" && Amount.Text == "000")
             {
                 for (int i = 0; i < 99; i++)
                 {
@@ -61,17 +55,12 @@ namespace TheDebtBook
             {
                 MessageBox.Show("En (Eller flere!) af felterne var tomme Prøv igen!");
             }
-            
-           
         }
-
         public void DeleteDebt()
         {
             var index = ((MainWindow) Application.Current.MainWindow).ListboxDebts.SelectedIndex;
             Debts.RemoveAt(index);
         }
-
-
 
         #region INotifyPropertyChanged implementation
 
