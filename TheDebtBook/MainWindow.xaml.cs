@@ -30,7 +30,7 @@ namespace TheDebtBook
         {
             
             var vm = DataContext as WindowViewModel;
-            vm.AddNewDebt(tbxName,tbxAmount);
+            vm.AddNewDebt(tbxName,tbxAmount, DataContext);
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count - 1;
             tbxName.Focus();
             tbxName.Clear();
@@ -53,14 +53,6 @@ namespace TheDebtBook
             win2.Show();
         }
 
-        private void ListboxDebts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TbxName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+    
     }
 }
