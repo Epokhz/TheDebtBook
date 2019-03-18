@@ -12,12 +12,13 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.Windows.Controls;
+using Prism.Regions;
 using TheDebtBook;
 
 
 namespace TheDebtBook
 {
-    public class WindowViewModel : INotifyPropertyChanged
+    public class WindowViewModel : ObservableCollection<Debt>
     {
         private ObservableCollection<Debt> debts;
 
@@ -53,6 +54,8 @@ namespace TheDebtBook
                     double add_val;
                     Debts[findName(Name.Text)].Sum += double.TryParse(Amount.Text, out add_val) ? add_val : Double.NaN;
                     Debts[findName(Name.Text)].addToHistory(add_val);
+                    refresh(Debts[findName(Name.Text)]);
+                    
                     return;
                 }
                 double val;
@@ -84,14 +87,24 @@ namespace TheDebtBook
             return -1;
         }
 
-        #region INotifyPropertyChanged implementation
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        public void refresh(Debt obj)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+           int index = findName(obj.Name);
+           string name = Debts[index].Name;
+           List<double> amount = Debts[index].getAmount();
+           double sum = Debts[index].Sum;
+           if (index == (debts.Count-1))
+           {
+               Debts.RemoveAt(index);
+                Debts.Add(new Debt(name, sum, DateTime.Now));
+           }
+           else
+           {
+               Debts[index] = null;
+               Debts[index] = (new Debt(name, sum, DateTime.Now));
+            }
+           
         }
-        #endregion
+
     }
 }
