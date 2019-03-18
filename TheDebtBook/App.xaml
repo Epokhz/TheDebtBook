@@ -10,7 +10,7 @@
                            Width="100"
                 />
                 <TextBlock TextAlignment="Right"
-                           Text="{Binding Path=Amount}" Padding="0, 0"
+                           Text="{Binding Path=Sum}" Padding="0, 0"
                            Width="50" 
                 />
                 <TextBlock TextAlignment="Right"
