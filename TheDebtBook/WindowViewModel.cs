@@ -30,10 +30,7 @@ namespace TheDebtBook
         
         }
 
-        #region Properties
-
-   
-
+        
         public ObservableCollection<Debt> Debts
         {
             get
@@ -42,9 +39,7 @@ namespace TheDebtBook
             }
         }
 
-        #endregion
-
-        #region Methods
+   
 
         public void AddNewDebt(TextBox Name, TextBox Amount)
         {
@@ -77,7 +72,6 @@ namespace TheDebtBook
         }
 
 
-        #endregion
 
         #region INotifyPropertyChanged implementation
 

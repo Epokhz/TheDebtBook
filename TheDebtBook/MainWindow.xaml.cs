@@ -47,8 +47,8 @@ namespace TheDebtBook
 
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
-            
-            Window2 win2 = new Window2();
+            var vm = DataContext as WindowViewModel;
+            Window2 win2 = new Window2(vm);
             win2.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win2.Show();
         }

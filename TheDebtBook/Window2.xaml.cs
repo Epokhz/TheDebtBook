@@ -20,10 +20,11 @@ namespace TheDebtBook
    
     public partial class Window2 : Window
     {
-        public Window2()
+        public Window2(WindowViewModel vm)
         {
+
             InitializeComponent();
-            FindingTarget();
+            FindingTarget(vm);
             
         }
 
@@ -32,17 +33,13 @@ namespace TheDebtBook
             this.Close();
         }
 
-        public void FindingTarget()
+        public void FindingTarget(WindowViewModel vm)
         {
             var selected = ((MainWindow)Application.Current.MainWindow).ListboxDebts.SelectedIndex;
-            var vm = DataContext as WindowViewModel;
-
-
             var name = vm.Debts[selected].Name;
             labelName.Content = name;
             
             
-
             
         }
     }
