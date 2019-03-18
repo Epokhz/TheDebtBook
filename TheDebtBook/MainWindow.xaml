@@ -75,7 +75,7 @@
                          HorizontalAlignment="Left" 
                          Text="{}" 
                          Grid.Row="1"
-                         Grid.Column="3" Width="264" Height="18"        
+                         Grid.Column="3" Width="264" Height="18" PreviewTextInput="tbxAmmout_PreviewTextInput"        
                 />
         <Button ToolTip="Add New" 
                         Content="Add"

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,14 +24,13 @@ namespace TheDebtBook
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void BtnAddNew_Click(object sender, RoutedEventArgs e)
         {
             
             var vm = DataContext as WindowViewModel;
-            vm.AddNewDebt(tbxName,tbxAmount, DataContext);
+            vm.AddNewDebt(tbxName,tbxAmount);
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count - 1;
             tbxName.Focus();
             tbxName.Clear();
@@ -53,6 +53,19 @@ namespace TheDebtBook
             win2.Show();
         }
 
-    
+        private void ListboxDebts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TbxName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tbxAmmout_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9,-]").IsMatch(e.Text);
+        }
     }
 }

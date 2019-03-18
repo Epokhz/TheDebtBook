@@ -9,41 +9,18 @@ using System.Windows.Media.Animation;
 
 namespace TheDebtBook
 {
-    public class Debtbook : ObservableCollection<Debt>
-    {
-        static private ObservableCollection<Debt> debts;
-        static private Debtbook Debtbook_;
-
-        static public Debtbook getDebts()
-        {
-            if (debts == null)
-            {
-                Debtbook_ = new Debtbook();
-                return Debtbook_;
-            }
-            else
-            {
-                return Debtbook_;
-            }
-        }
-
-        private Debtbook()
-        {
-            
-            getDebts().Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
-            getDebts().Add(new Debt("Viggo", "-100 kr", DateTime.Now));
-        }
-    }
-
     public class Debt
     {
-        
         private string _name;
-        private string _amount;
+        private double _amount;
+        private string _sum;
         private DateTime _datetime = DateTime.Now;
 
-        
-        public Debt(string aName, string anAmount, DateTime aTime)
+        public Debt()
+        {   
+        }
+
+        public Debt(string aName, double anAmount, DateTime aTime)
         {
             _name = aName;
             _amount = anAmount;
@@ -56,7 +33,7 @@ namespace TheDebtBook
             set => _name = value;
         }
 
-        public string Amount
+        public double Amount
         {
             get => _amount;
             set => _amount = value;
@@ -69,6 +46,6 @@ namespace TheDebtBook
         }
 
 
+
     }
 }
-
