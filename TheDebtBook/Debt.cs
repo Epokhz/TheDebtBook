@@ -12,8 +12,8 @@ namespace TheDebtBook
     public class Debt
     {
         private string _name;
-        private double _amount;
-        private string _sum;
+        private List<double> _amount;
+        private double _sum;
         private DateTime _datetime = DateTime.Now;
 
         public Debt()
@@ -23,8 +23,15 @@ namespace TheDebtBook
         public Debt(string aName, double anAmount, DateTime aTime)
         {
             _name = aName;
-            _amount = anAmount;
+            _amount = new List<double>();
+            _amount.Add(anAmount);
+            _sum = _amount[0];
             _datetime = aTime;
+        }
+
+        public void addToHistory(double amount)
+        {
+            _amount.Add(amount);
         }
 
         public string Name
@@ -33,16 +40,18 @@ namespace TheDebtBook
             set => _name = value;
         }
 
-        public double Amount
-        {
-            get => _amount;
-            set => _amount = value;
-        }
+     
 
         public DateTime Time
         {
             get => _datetime;
             set => _datetime = value;
+        }
+
+        public double Sum
+        {
+            get => _sum;
+            set => _sum = value;
         }
 
 

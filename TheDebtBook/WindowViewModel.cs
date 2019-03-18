@@ -20,6 +20,7 @@ namespace TheDebtBook
     public class WindowViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<Debt> debts;
+
         public WindowViewModel()
         {
             debts = new ObservableCollection<Debt>();
@@ -47,6 +48,13 @@ namespace TheDebtBook
             }
             if (Name.Text != "" && Amount.Text.Length != 0)
             {
+                if ( -1 != findName(Name.Text)) // Hvis navnet er der.
+                {
+                    double add_val;
+                    Debts[findName(Name.Text)].Sum += double.TryParse(Amount.Text, out add_val) ? add_val : Double.NaN;
+                    Debts[findName(Name.Text)].addToHistory(add_val);
+                    return;
+                }
                 double val;
                 Debts.Add(new Debt(Name.Text, (double.TryParse(Amount.Text, out val) ? val : Double.NaN), DateTime.Now));
                 return;
@@ -60,6 +68,20 @@ namespace TheDebtBook
         {
             var index = ((MainWindow) Application.Current.MainWindow).ListboxDebts.SelectedIndex;
             Debts.RemoveAt(index);
+        }
+
+        public int findName(string name) // Tjekker om "name" er i debts, hvis det er retuneres indexet ,hvis det ikke er i debts retuneres -1
+        {
+            for (int i = 0; i <= (debts.Count-1) ; i++)
+            {
+                if (Debts[i].Name == name)
+                {
+                    return i;
+                }
+          
+            }
+
+            return -1;
         }
 
         #region INotifyPropertyChanged implementation
