@@ -70,7 +70,7 @@ namespace TheDebtBook
             Debts.RemoveAt(index);
         }
 
-        public int findName(string name) // Tjekker om "name" er i debts, hvis det er retuneres indexet ,hvis det ikke er i debts retuneres -1
+        public int findName(string name) // Tjekker om "name" er i debts, hvis det er retuneres indexet, hvis det ikke er i debts retuneres -1
         {
             for (int i = 0; i <= (debts.Count-1) ; i++)
             {

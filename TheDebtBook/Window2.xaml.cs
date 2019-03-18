@@ -36,7 +36,7 @@ namespace TheDebtBook
             var selected = ((MainWindow)Application.Current.MainWindow).ListboxDebts.SelectedIndex;
             var name = vm.Debts[selected].Name;
             labelName.Content = name;
-            //ListboxHistory.ItemsSource = name;
+            ListboxHistory.ItemsSource = vm.Debts[selected].Name;
         }
     }
 }
