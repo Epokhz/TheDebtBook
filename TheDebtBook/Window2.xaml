@@ -27,8 +27,7 @@
                         Margin="10,0,0,0"  
                         Grid.Row="0"
                         Grid.Column="0"   
-                        Content="Current debt history of:"
-                        
+                        Content="Current debt history of:" 
                 />
         <Label Margin="10,0,0,0" 
                          Name="labelName" 
@@ -36,18 +35,22 @@
                          HorizontalAlignment="Left" 
                          MinWidth="58"
                          Grid.Row="1"
-                         Grid.Column="0" Width="167"   
+                         Grid.Column="0" Width="167"
                 />
 
         <ListBox IsSynchronizedWithCurrentItem="True"
-                         Name="ListboxDebts" 
+                         Name="ListboxHistory" 
                          Grid.Row="2"
                          Grid.Column="0" 
                          Height="Auto"
                          Margin="10,5,10,10"
                          ScrollViewer.VerticalScrollBarVisibility="Visible"
                          ItemTemplate="{StaticResource HistoryTemplate}"
+                         ItemsSource="{Binding Path = Debts}"
+                         
                 />
+                         <!--ItemTemplate="{StaticResource HistoryTemplate}"-->
+
 
         <Button ToolTip="Close Window" 
                         Content="Close"

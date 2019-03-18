@@ -22,10 +22,8 @@ namespace TheDebtBook
     {
         public Window2(WindowViewModel vm)
         {
-
             InitializeComponent();
             FindingTarget(vm);
-            
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
@@ -38,9 +36,7 @@ namespace TheDebtBook
             var selected = ((MainWindow)Application.Current.MainWindow).ListboxDebts.SelectedIndex;
             var name = vm.Debts[selected].Name;
             labelName.Content = name;
-            
-            
-            
+            //ListboxHistory.ItemsSource = name;
         }
     }
 }
