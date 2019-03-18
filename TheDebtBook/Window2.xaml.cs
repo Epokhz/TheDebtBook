@@ -34,12 +34,12 @@ namespace TheDebtBook
 
         public void FindingTarget()
         {
-            var selected = ((MainWindow)Application.Current.MainWindow).ListboxDebts.SelectedIndex;
-            var vm = DataContext as WindowViewModel;
+        //    var selected = ((MainWindow)Application.Current.MainWindow).ListboxDebts.SelectedIndex;
+        //    var vm = DataContext as WindowViewModel;
 
 
-            var name = vm.Debts[selected].Name;
-            labelName.Content = name;
+        //    var name = vm.[selected].Name;
+        //    labelName.Content = name;
             
             
 

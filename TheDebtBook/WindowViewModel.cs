@@ -15,19 +15,23 @@ using System.Windows.Controls;
 using TheDebtBook;
 
 
-namespace TheDebtBook 
+namespace TheDebtBook.
 {
-    public class WindowViewModel { 
+    public class WindowViewModel : INotifyPropertyChanged { 
        
-        private Debtbook _minbook;
+        private Debtbook minbook;
 
-        public WindowViewModel(Debtbook minbook)
+
+        public WindowViewModel()
         {
-            _minbook = Debtbook.getDebts();
+            minbook = Debtbook.getDebts();
         }
 
 
-        
+        public Debtbook getBook()
+        {
+            return minbook;
+        }
 
         public void AddNewDebt(TextBox Name, TextBox Amount, object DC)
         {
@@ -35,7 +39,7 @@ namespace TheDebtBook
             {
                 for (int i = 0; i < 99; i++)
                 {
-                   
+                    minbook.Add(new Debt("Dummy", "Data" + " kr", DateTime.Now));
                 }
 
                 return;
@@ -44,7 +48,7 @@ namespace TheDebtBook
             if (Name.Text != "" && Amount.Text != "")
             {
 
-                debts.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
+                minbook.Add(new Debt(Name.Text, Amount.Text + " kr", DateTime.Now));
                 return;
             }
             else
@@ -58,8 +62,15 @@ namespace TheDebtBook
         public void DeleteDebt()
         {
             var index = ((MainWindow) Application.Current.MainWindow).ListboxDebts.SelectedIndex;
-            debts.RemoveAt(index);
+            minbook.RemoveAt(index);
             return;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 };

@@ -12,11 +12,11 @@ namespace TheDebtBook
     public class Debtbook : ObservableCollection<Debt>
     {
         static private ObservableCollection<Debt> debts;
-        static private Debtbook Debtbook_;
+        static private Debtbook Debtbook_ = null;
 
         static public Debtbook getDebts()
         {
-            if (debts == null)
+            if (Debtbook_ == null)
             {
                 Debtbook_ = new Debtbook();
                 return Debtbook_;
@@ -30,8 +30,8 @@ namespace TheDebtBook
         private Debtbook()
         {
             
-            getDebts().Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
-            getDebts().Add(new Debt("Viggo", "-100 kr", DateTime.Now));
+            //getDebts().Add(new Debt("Mie Kryds Nielsen", "689 kr", DateTime.Now));
+            //getDebts().Add(new Debt("Viggo", "-100 kr", DateTime.Now));
         }
     }
 

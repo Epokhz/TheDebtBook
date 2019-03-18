@@ -10,7 +10,7 @@
         
         >
     <Window.DataContext>
-        <local:WindowViewModel />
+        <local:w/>
     </Window.DataContext>
     <Grid Name="DebtGrid">
         <Grid.RowDefinitions>

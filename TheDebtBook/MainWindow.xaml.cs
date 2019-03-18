@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheDebtBook.viewModel;
+
 
 namespace TheDebtBook
 {
@@ -28,7 +30,6 @@ namespace TheDebtBook
 
         private void BtnAddNew_Click(object sender, RoutedEventArgs e)
         {
-            
             var vm = DataContext as WindowViewModel;
             vm.AddNewDebt(tbxName,tbxAmount, DataContext);
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count - 1;
@@ -39,7 +40,7 @@ namespace TheDebtBook
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var vm = DataContext as WindowViewModel;
+            WindowViewModel vm = DataContext as WindowViewModel;
             vm.DeleteDebt();
             ListboxDebts.SelectedIndex = ListboxDebts.Items.Count +1;
             tbxName.Focus();
