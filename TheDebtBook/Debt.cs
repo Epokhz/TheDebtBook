@@ -54,7 +54,15 @@ namespace TheDebtBook
             set => _sum = value;
         }
 
+        public List<double> getAmount()
+        {
+            return _amount;
+        }
 
+        public void setAmount(List<double> amount)
+        {
+            _amount = amount;
+        }
 
     }
 }
