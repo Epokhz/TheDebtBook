@@ -67,7 +67,7 @@
                          MinWidth="58"
                          Text="{}" 
                          Grid.Row="1"
-                         Grid.Column="3" Width="264" TextChanged="TbxName_TextChanged" Height="18"   
+                         Grid.Column="3" Width="264" TextChanged="TbxName_TextChanged" Height="18"
                 />
         <TextBox Margin="0,54.8,30.6,0" 
                          Name="tbxAmount"

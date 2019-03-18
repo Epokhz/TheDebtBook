@@ -10,7 +10,7 @@
                            Width="100"
                 />
                 <TextBlock TextAlignment="Right"
-                           Text="{Binding Path=Amount}" Padding="0, 0"
+                           Text="{Binding Path = Amount}" Padding="0, 0"
                            Width="50" 
                 />
                 <TextBlock TextAlignment="Right"
@@ -21,13 +21,12 @@
         </DataTemplate>
         <DataTemplate x:Key="HistoryTemplate">
             <WrapPanel>
-                <TextBlock TextAlignment="Right"
-                           Text="{Binding Path=Amount}" Padding="0, 0"
-                           Width="50" 
+                <TextBlock Text="{Binding Path=Time}" Padding="0, 0"
+                           Width="120" 
                 />
                 <TextBlock TextAlignment="Right"
-                           Text="{Binding Path=Time}" Padding="0, 0"
-                           Width="150" 
+                           Text="{Binding Path=Amount}" Padding="0, 0"
+                           Width="40" 
                 />
             </WrapPanel>
         </DataTemplate>
